@@ -1,6 +1,7 @@
 require(shiny)
 require(googleVis)
 require(gridExtra)
+require(ggplot2)
 # require(Kmisc)
 # require(rCharts)
 # require(rNVD3)
