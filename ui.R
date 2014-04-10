@@ -96,8 +96,8 @@ shinyUI(fluidPage(
                  loadingPanel,
                  plotOutput("myPlot2", width="700px", height="auto")
                  ), 
-        tabPanel("User Guide", 
-                 includeMarkdown("man/user_guide.Rmd")
+        tabPanel("User Guide"
+                 #includeMarkdown("man/user_guide.Rmd")
                  )
 
 
