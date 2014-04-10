@@ -72,7 +72,7 @@ shinyUI(fluidPage(
         sliderInput(inputId='orderq', label='Order q (default is 0 to 2)', min=0, max=5, value=c(0, 2), step=0.1),
         numericInput(inputId='conf', label='Confidence level (default is 0.95)', value=0.95, min=0, max=1, step=0.01), 
         numericInput(inputId='cutpt', label='cut-off point (default is 10)', value=10, min=1, max=20, step=1), 
-        numericInput(inputId='nboot', label='Number of Bootstrap (default is 100)', value=5, min=5, max=1000, step=5)
+        numericInput(inputId='nboot', label='Number of Bootstrap (default is 5)', value=5, min=5, max=1000, step=5)
       )
     ),
     
