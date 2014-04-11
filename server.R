@@ -10,12 +10,12 @@ require(ggplot2)
 # require(rCharts)
 
 # Example data for Species and diversity
-data(Spider)
-spider <- Spider
+# data(Spider)
+# spider <- Spider
 
 # Incidence data for one community
-data(Ant)
-ant <- Ant
+# data(Ant)
+# ant <- Ant
 
 shinyServer(function(input, output, session){
   tseng_color <- c("green3", "red", "deepskyblue", "yellow", "orange")
@@ -36,7 +36,7 @@ shinyServer(function(input, output, session){
       text <- input$copyAndPaste_inci
     }
     Fun <- function(e){
-      #將一條字串拆成一個一個list，並且依資料換成程度切成不同list
+      # split the text into many list, split by "\n".
       temp <- lapply(readLines(textConnection(text)), function(x) scan(text = x, what = 'char'))
       out <- list()
       out.name <- 0
