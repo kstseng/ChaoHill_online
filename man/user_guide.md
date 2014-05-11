@@ -15,14 +15,14 @@
 * [Output](#output)
   * [Data Summary](#summary)
   * [Esitmation](#chaohill)
-  * [Figure plot(by Data)](#bydata)
-  * [Figure plot(by Method)](#bymethod)
+  * [Figure plot (by Data)](#bydata)
+  * [Figure plot (by Method)](#bymethod)
 * [References](#reference)
 
 * * * * * * * *
 <h2 id="overview">Overview</h2>
 
-The program <strong>`ChaoHill`</strong> (<strong>`Hill's curve`</strong> estimator proposed by <strong>`Chao`</strong> et al) online is written by the <a href="http://www.r-project.org/"> R </a> language and the interactive web application is built by using <a href="http://www.rstudio.com/shiny" target="_blank">Shiny</a>. The user provides a vector of abundances of individual species (abundance data) or incidences of individual species (incidence data). <strong>`ChaoHill`</strong> computes the Hill's curve estimators, bootstrap standard error and confidence intervals.
+The program (<strong>`Hill's curve`</strong> estimator proposed by <strong>`Chao`</strong> et al) online is written by the <a href="http://www.r-project.org/"> R </a> language and the interactive web application is built by using <a href="http://www.rstudio.com/shiny" target="_blank">Shiny</a>. The user provides a vector of abundances of individual species (abundance data) or incidences of individual species (incidence data), this program computes the Hill's curve estimators, bootstrap standard error and confidence intervals.
 
 <h3 id="cite">How to Cite</h3>
 
@@ -36,7 +36,7 @@ To help refine <strong>`ChaoHill`</strong>, your comments or feedbacks would be 
 
 <h3 id="type">Data Type</h3>
 
-<strong>`ChaoHill`</strong> supports two types of data for computation the Hill's curve:
+This prgram supports two types of data for computation the Hill's curve:
 
 1. Abundance data: a vector of abundances of individual species in the sample.
 
@@ -55,14 +55,14 @@ All the titles of the demo data and imported data (see [Import Data](#import) fo
 
 <h3 id="import">Import Data</h3>
 
-<strong>`ChaoHill`</strong> provides a visualized import data function. After checking the checkbox: **Import data**, user can input data (line by line) in the text area; the title of your imported data will be listed in the box: **Select dataset**. The import formats for the abundance data and incidence data are different. The data formats for the two types of data are described below.
+This program provides a visualized import data function. After checking the checkbox: **Import data**, user can input data (line by line) in the text area; the title of your imported data will be listed in the box: **Select dataset**. The import formats for the abundance data and incidence data are different. The data formats for the two types of data are described below.
 * Import abundance data: 
-We use a simple example to show how to import abundance data. Consider the spider data and the birds data (spider data is provided by Sackett et al. (2011); birds data is provided by Magurran, A. E. (1988))
+We use a simple example to show how to import abundance data. Consider the Girdled data and the Logged data (spider data is provided by Sackett et al. (2011); birds data is provided by Magurran, A. E. (1988))
 
   ```{r}
 Girdled 46 22 17 15 15 9 8 6 6 4 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1        
 Logged  88 22 16 15 13 10 8 8 7 7 7 5 4 4 4 3 3 3 3 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 2 
-        2 1 1 1     
+            2 1 1 1     
   ```
 
 Since there are two datasets, the imported data contain two lines (separated by return). The first line includes the species abundances for 26 species in the Girdled and the second line includes the species abundances for 37 species in the Logged. **For each line, the first entry is the title of the dataset (the title is not allowed to start with a numerical digit) followed by the species abundances.** All entries should be separated by blank space (" "). For example, in the Girdled, the most abundant species is represented by 46 individuals, the second most abundant species is represented by 22 individuals in the sample, etc. Although the species abundances in this example are entered in a decreasing order, the ordering is not relevant in our analysis. You can choose any ordering of species abundances. 

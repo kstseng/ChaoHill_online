@@ -25,7 +25,7 @@ shinyUI(fluidPage(
 #          "Graphs", HTML('<img src="ah_large_black.gif", height="200px"    
 #                         style="float:right"/>','<p style="color:red"> test test </p>' ))
 #     ),
-  titlePanel("Hill's Curve Estimation"),
+  titlePanel("ChaoHill-Online"),
   
   sidebarLayout(
     sidebarPanel(
@@ -41,7 +41,7 @@ shinyUI(fluidPage(
                     choices=c("Abundance data"="abun", "Incidence data"="inci")
         ),
         radioButtons(inputId="source", "Choose one:", 
-                     choices=c("Key in data"="keyin", "Upload data"="upload")
+                     choices=c("Import data"="keyin", "Upload data"="upload")
         ),
         conditionalPanel(condition="input.source == 'upload'",
                          fileInput("files", "Choose File (.csv)", accept=".csv")
@@ -67,7 +67,9 @@ shinyUI(fluidPage(
                            p(em("(Input format : First entry should be the total number of sampling units, and followed by species incidence frequency.)"))
                          )     
         ), 
-        actionButton("goButton", span("Run !", style="font-size: 20px"), icon = icon("play-circle"))
+        actionButton("goButton", span("Run !", style="font-size: 20px")), 
+        p(em("Once you change the setting, you have to click the \"Run !\" button again."))
+#         actionButton("goButton", span("Run !", style="font-size: 20px"), icon = icon("play-circle"))
 #         conditionalPanel(condition="input.source == 'upload'",
 #                          actionButton("cleanButton", span("Clean the data!", style="font-size: 12px"), icon = icon("refresh")))  
 
@@ -90,12 +92,14 @@ shinyUI(fluidPage(
       tabsetPanel(
         tabPanel("Data summary", h3("Basic data information"),
                  loadingPanel,
-                 htmlOutput("datainfo")
+                 htmlOutput("datainfo"),
+                 downloadLink("dsummary", "Download as csv file")
                  ),
         tabPanel("Estimtation", h3("Estimation"),
                  checkboxInput("Showq012", "Only show the integral of q.", TRUE),
                  loadingPanel, 
-                 htmlOutput('estimation')
+                 htmlOutput('estimation'),
+                 downloadLink("dest", "Download as csv file")
                  ),
         tabPanel("Figure plot (by Data)", h3(""),
                  loadingPanel,
@@ -107,7 +111,10 @@ shinyUI(fluidPage(
                  ), 
         tabPanel("User Guide", 
                  includeMarkdown("man/user_guide.md")
-                 )
+                 ), 
+        tabPanel("R code", 
+                 includeMarkdown("man/RcodeWeb.md")
+        )
 
 
       )
